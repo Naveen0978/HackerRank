@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+int comp(const void *a,const void *b)
+{
+    return (*((int*)b))-(*((int*)a)) ;
+}
+
+int main() {
+
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */
+    int n;
+    scanf("%d",&n);
+    int c[n];
+    for(int i=0;i<n;i++)
+        scanf("%d",&c[i]);
+    
+    qsort(c,n,sizeof(c[0]),comp);
+       
+    long long int res=0;
+    for(int i=0;i<n;i++)
+    {
+        res+=(long long int)pow(2,i)*c[i];
+    }
+    
+    printf("%lld",res);
+    
+    return 0;
+}
